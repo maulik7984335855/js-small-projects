@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Changing</title>
+  </head>
+  <body>
+    <div>
+        <h2>Hello Maulik Prajapati</h2>
+    </div>
+    <button>Dark</button>
+
+    <script>
+      const btn = document.querySelector("button");
+      const body = document.querySelector("body");
+      btn.addEventListener("click", () => {
+        if (btn.textContent == "Dark") {
+          body.style.backgroundColor = "black";
+          body.style.color="white"
+          btn.textContent = "Light";
+        }
+        else{
+          body.style.backgroundColor = "white";
+          body.style.color="black"
+          btn.textContent = "Dark";
+        }
+      });
+    </script>
+  </body>
+</html>
