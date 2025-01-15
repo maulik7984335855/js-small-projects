@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2></h2>
+    <button class="inc">Inc</button>
+    <button class="dec">Dec</button>
+    <button class="reset">Reset</button>
+
+    <script>
+      let h2 = document.querySelector("h2");
+      let incBtn = document.querySelector(".inc");
+      let decBtn = document.querySelector(".dec");
+      let reset = document.querySelector(".reset");
+      let counter = parseInt(prompt("Enter Number"));
+      if (counter < 0 || isNaN(counter)) {
+        console.log("Not valid");
+        counter = 0
+      } 
+  
+      
+        h2.innerHTML = counter;
+        incBtn.addEventListener("click", () => {
+          // console.log("Hello");
+          counter += 1;
+          h2.innerHTML = counter;
+        });
+
+        decBtn.addEventListener("click", () => {
+          if (counter > 0) {
+            counter -= 1;
+          } else {
+            alert("Stop");
+          }
+          h2.innerHTML = counter;
+        });
+
+        reset.addEventListener("click", () => {
+          counter = 0;
+          h2.innerHTML = counter;
+        });
+      
+
+      //   setInterval(() => {
+      //     counter += 1;
+      //     h2.innerHTML = counter;
+      //   }, 1000);
+      //   setTimeout(() => {
+      //     // console.log("hello");
+
+      //     counter += 1;
+      //     h2.innerHTML = counter;
+      //   }, 5000);
+    </script>
+  </body>
+</html>

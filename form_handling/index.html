@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Handling</title>
+  </head>
+  <body>
+    <form  method="POST">
+      <label for="name">Name</label>
+      <input type="text" class="name" name="name" />
+      <br />
+      <br />
+      <label for="email">Email</label>
+      <input type="email" class="email" name="email" />
+      <br />
+      <br />
+      <label for="password">Password</label>
+      <input type="password" class="password" name="password" />
+      <button class="showBtn">Show</button>
+      <br />
+      <br />
+      <button class="btn" type="submit">Submit</button>
+    </form>
+
+    <script>
+      const form = document.querySelector("form");
+      const btn = document.querySelector(".btn");
+
+      let name = document.querySelector(".name");
+      let email = document.querySelector(".email");
+      let password = document.querySelector(".password");
+      let showBtn = document.querySelector(".showBtn");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (name.value == "" || email.value == "" || password.value == "") {
+          alert("all fields are required");
+        } 
+        else if(password.value.length<8 )
+        {
+            alert('password Length Be 8')
+        }
+        else {
+          let compName = name.value.trim()
+          let compEmail = email.value.trim()
+          let compPassword = password.value.trim()
+          console.log(compName + " " + compEmail + " " + compPassword);
+          name.value = ""
+          password.value = ""
+          email.value = ""
+        }
+      });
+
+      showBtn.addEventListener("click", () => {
+        if (password.type == "password") {
+          password.type = "text";
+          showBtn.textContent = "Hide";
+        } else {
+          password.type = "password";
+          showBtn.textContent = "Show";
+        }
+      });
+    </script>
+  </body>
+</html>

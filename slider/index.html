@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">Slider 1</div>
+            <div class="carousel-item">Slider 2</div>
+            <div class="carousel-item">Slider 3</div>
+        </div>
+        <button class="prev">prev</button>
+        <button class="next">next</button>
+    </div>
+
+    <script>
+        let carouselInner = document.querySelector('.carousel-inner')
+        let carouselItems = document.querySelectorAll('.carousel-item')
+        let prevBtn = document.querySelector('.prev')
+        let nextBtn = document.querySelector('.next')
+        let carouselLength = carouselItems.length
+        let counterIndex = 0
+
+        function updateSlide()
+        {
+            let rangeSlide = -counterIndex * 100
+            carouselInner.style.transform = `translateX(${rangeSlide}%)`
+        }
+
+        nextBtn.addEventListener("click",()=>{
+            counterIndex = (counterIndex+1) % carouselLength
+            updateSlide()
+        })
+
+        prevBtn.addEventListener('click',()=>{
+            counterIndex = (counterIndex-1+carouselLength) % carouselLength
+            updateSlide()
+        })
+
+        setInterval(()=>{
+            counterIndex = (counterIndex+1) % carouselLength
+            updateSlide()
+        },2000)
+
+    </script>
+
+</body>
+</html>

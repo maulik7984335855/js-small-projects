@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+        <span>Hello, <b>world</b>!</span>
+    </div>
+    <script>
+      const arr = [
+        {
+          id: 1,
+          name: "Caramel",
+          imgSrc: "../images/caramel scoops.png",
+        },
+        {
+          id: 2,
+          name: "Double Delight",
+          imgSrc: "../images/double delight.png",
+        },
+        {
+          id: 3,
+          name: "Strawberry Scoop",
+          imgSrc: "../images/strawberry icecream.png",
+        },
+      ];
+
+        let mainDiv = document.querySelector(".main");
+        let htmlContent = '<ul>'
+          arr.forEach((item)=>{
+              htmlContent+=`
+
+              <li>
+                  <h2>${item.name}</h2>
+                  <img src="${item.imgSrc}" alt="img" />
+              </li>
+
+              `
+          })
+
+          htmlContent+='</ul>'
+
+          mainDiv.innerHTML = htmlContent
+
+   
+
+    </script>
+  </body>
+</html>
